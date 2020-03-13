@@ -1,0 +1,44 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_itoa.c                                        .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: sberbagu <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2019/10/14 18:41:45 by sberbagu     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/14 18:50:18 by sberbagu    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
+#include <stdlib.h>
+#include <stdio.h>
+
+char	*ft_itoa(int n)
+{
+	int i;
+	int j;
+	char *str;
+
+	i = 0;
+	j = n;
+	while (j != 0)
+	{
+		j = j / 10;
+		i++;
+	}
+	if (!(str = malloc(sizeof(char) * (i + 1))))
+		return (NULL);
+	while (i >= 0)
+	{
+		str[i] = n % 10;
+		n = n / 10;
+		i--;
+	}
+	return (str);
+}
+
+int main()
+{
+	printf("%s", ft_itoa(1234));
+}

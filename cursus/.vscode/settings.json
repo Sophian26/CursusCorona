@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "get_next_line.h": "c",
+        "ostream": "c",
+        "sstream": "c",
+        "stdio.h": "c",
+        "ft_printf.h": "c",
+        "unistd.h": "c",
+        "stdlib.h": "c",
+        "string.h": "c"
+    }
+}
