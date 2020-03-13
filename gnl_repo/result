@@ -1,0 +1,130 @@
+BUFFER_SIZE : 32
+
+Negative fd :
+Return -1
+Error : line = 0
+
+No file :
+Return -1
+Error : line = 0
+
+Empty file :
+0 - []
+
+Only newline :
+1 - []
+0 - []
+
+Only a :
+0 - [a]
+0 - []
+
+Only z + nl :
+1 - [z]
+0 - []
+
+Lorem ipsum (+1 call) :
+0 - [Lorem ipsum]
+0 - []
+0 - []
+
+Lorem ipsum + nl :
+1 - [Lorem ipsum]
+0 - []
+
+Multiple lines :
+1 - [Lorem ipsum dolor sit amet,]
+1 - [consectetur adipiscing elit.]
+1 - [Proin viverra nibh at justo iaculis, non feugiat felis pharetra. Suspendisse luctus ante mauris.]
+1 - [Ut sit amet mi ac nisl gravida aliquam.]
+1 - [Etiam eget dolor.]
+0 - []
+
+Multiple short lines :
+1 - [123]
+1 - [45]
+1 - [6789]
+1 - [ab]
+1 - [cde]
+0 - []
+
+Multiple lines, last line is long :
+1 - [Lorem ipsum dolor sit amet,]
+1 - [consectetur adipiscing elit.]
+1 - [Proin viverra nibh at justo iaculis, non feugiat felis pharetra. Suspendisse luctus ante mauris.]
+1 - [Ut sit amet mi ac nisl gravida aliquam.]
+1 - [Etiam eget dolor quis enim scelerisque pharetra a ac tortor.]
+0 - []
+
+Only empty lines (4) :
+1 - []
+1 - []
+1 - []
+1 - []
+0 - []
+
+Some empty lines (begin with full, finish with full) :
+1 - [full line 1]
+1 - []
+1 - [full line 2]
+1 - []
+1 - [full line 3]
+0 - []
+
+Some empty lines (begin with empty, finish with empty) :
+1 - []
+1 - [full line 1]
+1 - []
+1 - [full line 2]
+1 - []
+1 - [full line 3]
+1 - []
+0 - []
+
+31 chars :
+0 - [Lorem ipsum dolor sit amet con.]
+0 - []
+
+30 chars + nl :
+1 - [Lorem ipsum dolor sit amet co.]
+0 - []
+
+32 chars :
+0 - [Lorem ipsum dolor sit amet cons.]
+0 - []
+
+31 chars + nl :
+1 - [Lorem ipsum dolor sit amet con.]
+0 - []
+
+33 chars :
+0 - [Lorem ipsum dolor sit amet conse.]
+0 - []
+
+32 chars + nl :
+1 - [Lorem ipsum dolor sit amet cons.]
+0 - []
+
+33 chars + nl :
+1 - [Lorem ipsum dolor sit amet conse.]
+0 - []
+
+30 chars + nl and small line :
+1 - [Lorem ipsum dolor sit amet co.]
+1 - [Cras eget diam dui.]
+0 - []
+
+31 chars + nl and small line :
+1 - [Lorem ipsum dolor sit amet con.]
+1 - [Cras eget diam dui.]
+0 - []
+
+32 chars + nl and small line :
+1 - [Lorem ipsum dolor sit amet cons.]
+1 - [Cras eget diam dui.]
+0 - []
+
+33 chars + nl and small line :
+1 - [Lorem ipsum dolor sit amet conse.]
+1 - [Cras eget diam dui.]
+0 - []
